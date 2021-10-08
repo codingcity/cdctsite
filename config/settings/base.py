@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['54.180.188.61']
 # Application definition
 
 INSTALLED_APPS = [
+    'books.apps.BooksConfig',
     'common.apps.CommonConfig',
     'notice.apps.NoticeConfig',
     'django.contrib.admin',

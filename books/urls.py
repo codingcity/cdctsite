@@ -1,19 +1,25 @@
 from django.urls import path
 
-from .views import base_views, question_views, answer_views, comment_views
+from .views import base_views, books_views
 
-app_name = 'notice'
+app_name = 'books'
 
 urlpatterns = [
     # base_views.py
-    path('',
-         base_views.index, name='index'),
-    path('<int:question_id>/',
-         base_views.detail, name='detail'),
+    #path('',base_views.index, name='index'),
+    path('index/', base_views.index, name='index'),
+    path('<int:books_id>/',base_views.detail, name='detail'),
 
-    # question_views.py
-    path('question/create/',
-         question_views.question_create, name='question_create'),
+    path('books/create/',
+         books_views.books_create, name='books_create'),
+
+
+]
+
+"""
+
+   # question_views.py
+
     path('question/modify/<int:question_id>/',
          question_views.question_modify, name='question_modify'),
     path('question/delete/<int:question_id>/',
@@ -26,8 +32,8 @@ urlpatterns = [
          answer_views.answer_modify, name='answer_modify'),
     path('answer/delete/<int:answer_id>/',
          answer_views.answer_delete, name='answer_delete'),
-
-    # comment_views.py
+         
+             # comment_views.py
     path('comment/create/question/<int:question_id>/',
          comment_views.comment_create_question, name='comment_create_question'),
     path('comment/modify/question/<int:comment_id>/',
@@ -40,6 +46,5 @@ urlpatterns = [
          comment_views.comment_modify_answer, name='comment_modify_answer'),
     path('comment/delete/answer/<int:comment_id>/',
          comment_views.comment_delete_answer, name='comment_delete_answer'),
-
-
-]
+         
+"""

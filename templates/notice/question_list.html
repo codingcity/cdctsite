@@ -15,6 +15,8 @@
             </select>
         </div>
 
+                <h1>코딩시티 공지사항</h1>
+
         <div class="col-4 input-group">
             <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
             <div class="input-group-append">
@@ -102,7 +104,11 @@
     </ul>
     <!-- 페이징처리 끝 -->
 
-        <a href="{% url 'notice:question_create' %}" class="btn btn-primary">공지 등록하기</a>
+    {% if request.user.username == 'admin' or request.user.username == 'FrontMan' %}
+      <a href="{% url 'notice:question_create' %}" class="btn btn-primary">공지 등록하기</a>
+    {% endif %}
+
+
 </div>
 
 <form id="searchForm" method="get" action="{% url 'index' %}">
